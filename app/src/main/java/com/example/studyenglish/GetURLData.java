@@ -23,6 +23,7 @@ class GetURLData extends AsyncTask<String, String, String> {
     public String buttonAnswer2 = "не успели получить";
     public String buttonAnswer3 = "не успели получить";
     public String buttonAnswer4 = "не успели получить";
+    public int numberTrueAnswer = 0;
 
 
     // Будет выполняться во время подключения по URL
@@ -93,6 +94,10 @@ class GetURLData extends AsyncTask<String, String, String> {
             buttonAnswer2 = jsonObject.getJSONObject("listAnswers").getJSONObject("answer2").getString("value");
             buttonAnswer3 = jsonObject.getJSONObject("listAnswers").getJSONObject("answer3").getString("value");
             buttonAnswer4 = jsonObject.getJSONObject("listAnswers").getJSONObject("answer4").getString("value");
+
+
+            numberTrueAnswer = jsonObject.getJSONObject("listAnswers").getInt("numberTrueAnswer");
+
 
         } catch (JSONException e) {
             e.printStackTrace();

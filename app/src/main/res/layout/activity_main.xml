@@ -64,12 +64,14 @@
                     android:id="@+id/buttonAnswer1"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:onClick="OnClickButton6"
+                    android:backgroundTint="#7C1A1A"
+                    android:onClick="OnClickButtonAnswer1"
                     android:text="Button" />
 
                 <Button
                     android:id="@+id/buttonAnswer3"
                     android:layout_width="match_parent"
+                    android:onClick="OnClickButtonAnswer3"
                     android:layout_height="150dp"
                     android:text="Button" />
             </LinearLayout>
@@ -83,13 +85,14 @@
                     android:id="@+id/buttonAnswer2"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:onClick="OnClickButtonAnswer2"
                     android:text="Button" />
 
                 <Button
                     android:id="@+id/buttonAnswer4"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:onClick="OnClickButton7"
+                    android:onClick="OnClickButtonAnswer4"
                     android:text="Button" />
             </LinearLayout>
         </LinearLayout>
@@ -102,7 +105,7 @@
                 android:id="@+id/buttonNextQuestion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="OnClickButtonNextQuestion"
+                android:onClick="onClickButtonNextQuestion"
                 android:text="Button" />
         </FrameLayout>
     </LinearLayout>
