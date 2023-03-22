@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonAnswer3;
     Button buttonAnswer4;
     TextView textView;
-    String url = "http://192.168.0.10:8080/NewTopic/1";
+    String url = "http://192.168.0.10:8080/v1/new-topic/";
     GetURLData GUD = null;
 
 
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClickButtonNextQuestion(View view) throws InterruptedException {
+
         getNextQuestion();
 
     }
@@ -74,14 +75,16 @@ public class MainActivity extends AppCompatActivity {
 
             newRequestOnURL();
 
-
-            //добавить сброс цвета кнопок
             textView = (TextView) findViewById(R.id.textView);
             buttonAnswer1 = (Button) findViewById(R.id.buttonAnswer1);
             buttonAnswer2 = (Button) findViewById(R.id.buttonAnswer2);
             buttonAnswer3 = (Button) findViewById(R.id.buttonAnswer3);
             buttonAnswer4 = (Button) findViewById(R.id.buttonAnswer4);
 
+            buttonAnswer1.setBackgroundColor(Color.GRAY);
+            buttonAnswer2.setBackgroundColor(Color.GRAY);
+            buttonAnswer3.setBackgroundColor(Color.GRAY);
+            buttonAnswer4.setBackgroundColor(Color.GRAY);
 
             TimeUnit.SECONDS.sleep(1);
 

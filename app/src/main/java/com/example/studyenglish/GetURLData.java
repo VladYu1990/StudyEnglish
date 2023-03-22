@@ -3,7 +3,6 @@ package com.example.studyenglish;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,6 +14,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 
 @SuppressLint("StaticFieldLeak")
 class GetURLData extends AsyncTask<String, String, String> {
@@ -89,14 +90,20 @@ class GetURLData extends AsyncTask<String, String, String> {
         // Конвертируем JSON формат и выводим данные в текстовом поле
         try {
             JSONObject jsonObject = new JSONObject(result);
-            question = jsonObject.getJSONObject("question").getString("value");
-            buttonAnswer1 = jsonObject.getJSONObject("listAnswers").getJSONObject("answer1").getString("value");
-            buttonAnswer2 = jsonObject.getJSONObject("listAnswers").getJSONObject("answer2").getString("value");
-            buttonAnswer3 = jsonObject.getJSONObject("listAnswers").getJSONObject("answer3").getString("value");
-            buttonAnswer4 = jsonObject.getJSONObject("listAnswers").getJSONObject("answer4").getString("value");
+            numberTrueAnswer = jsonObject.getJSONObject("listAnswers").getInt("number") + 1;
+            question = jsonObject.getString("writingObject");
+            String listString = jsonObject.getJSONObject("listAnswers").getString("list")
+                    .replace("\"","")
+                    .replace("[","")
+                    .replace("]","");
+            List<String> list = Arrays.asList(listString.split("\\s*,\\s*"));
+            buttonAnswer1 = list.get(0);
+            buttonAnswer2 = list.get(1);
+            buttonAnswer3 = list.get(2);
+            buttonAnswer4 = list.get(3);
 
 
-            numberTrueAnswer = jsonObject.getJSONObject("listAnswers").getInt("numberTrueAnswer");
+
 
 
         } catch (JSONException e) {
