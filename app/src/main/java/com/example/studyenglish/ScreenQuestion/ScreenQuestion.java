@@ -1,7 +1,5 @@
 package com.example.studyenglish.ScreenQuestion;
 
-import static android.net.wifi.WifiConfiguration.Status.strings;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -10,14 +8,13 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.studyenglish.ButtonAnswer;
-import com.example.studyenglish.GetURLData;
+import com.example.studyenglish.Answer;
 import com.example.studyenglish.R;
 import com.example.studyenglish.ServisesWorkWithOutExternal.GetNextQuestion;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class ScreenQuestion extends AppCompatActivity {
@@ -26,19 +23,28 @@ public class ScreenQuestion extends AppCompatActivity {
     public Button buttonAnswer3;
     public Button buttonAnswer4;
     public TextView textView;
+    public Map<Integer, Answer> mapButton= new HashMap<Integer, Answer>();
     public ArrayList listCodesOfTrueAnswers = new ArrayList();
+    public Answer answer11 = new Answer();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         buttonAnswer1 = findViewById(R.id.buttonAnswer1);
         buttonAnswer2 = findViewById(R.id.buttonAnswer2);
         buttonAnswer3 = findViewById(R.id.buttonAnswer3);
         buttonAnswer4 = findViewById(R.id.buttonAnswer4);
         textView = (TextView) findViewById(R.id.textView);
+
+        refreshButton();
+
+        mapButton.put(1,new Answer(buttonAnswer1));
+        mapButton.put(2,new Answer(buttonAnswer2));
+        mapButton.put(3,new Answer(buttonAnswer3));
+        mapButton.put(4,new Answer(buttonAnswer4));
+
 
         getNextQuestion();
         refreshButton();
@@ -47,27 +53,43 @@ public class ScreenQuestion extends AppCompatActivity {
 
 
     public void OnClickButtonAnswer1(View view){
-        questionCheck(1,buttonAnswer1);
+        int i = 1;
+        answerCheck(mapButton.get(i));
     }
     public void OnClickButtonAnswer2(View view){
-        questionCheck(2,buttonAnswer2);
+        int i = 2;
+        answerCheck(mapButton.get(i));
     }
     public void OnClickButtonAnswer3(View view){
-        questionCheck(3,buttonAnswer3);
+        int i = 3;
+        answerCheck(mapButton.get(i));
     }
     public void OnClickButtonAnswer4(View view){
-        buttonAnswer4.setBackgroundColor(Color.BLUE);
-        questionCheck(4,buttonAnswer4);
+        int i = 4;
+        answerCheck(mapButton.get(i));
     }
 
     public void onClickButtonNextQuestion(View view){
 
         getNextQuestion();
+        refreshButton();
 
     }
 
-    private void questionCheck(int number,Button button){
-       //TODO
+    private void answerCheck(Answer answer){
+        if(answer.getCorrect()){
+            answer.getButton().setBackgroundColor(Color.GREEN);
+            //todo вызов метода возврата ответа на бэк(бэк сам решает верный или нет был ответ
+        }
+            else {
+                for(int i = 0;i<mapButton.size();i++ ) {
+                if (mapButton.get(i + 1).getCorrect()) {
+                    mapButton.get(i + 1).getButton().setBackgroundColor(Color.GREEN);
+                }
+                    else mapButton.get(i + 1).getButton().setBackgroundColor(Color.RED);
+            }
+        }
+
 
     }
 
@@ -79,7 +101,6 @@ public class ScreenQuestion extends AppCompatActivity {
     }
 
     private void newRequestOnURL(){
-        buttonAnswer3.setText("newRequestOnURL");
         GetNextQuestion getNextQuestion = new GetNextQuestion(this);
 
     }
