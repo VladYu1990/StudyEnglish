@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#020202"
+    android:backgroundTint="#000000"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonAddTask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:backgroundTint="#808080"
+            android:onClick="OnClickButtonBack"
+            android:text="Back"
+            app:cornerRadius="16dp" />
+
+        <Button
+            android:id="@+id/buttonScore"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="#808080"
+            android:text="Score"
+            app:cornerRadius="16dp" />
+
+        <Button
+            android:id="@+id/buttonTraining"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:backgroundTint="#808080"
+            android:onClick="OnClickButtonBack"
+            android:text="Training"
+            app:cornerRadius="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="#020202"
+        android:backgroundTint="#000000"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="выберите тему" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buttonWhite"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="White"
+                android:onClick="OnClickButtonWhite"
+                app:cornerRadius="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#808080"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buttonBlack"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="Black"
+                android:onClick="OnClickButtonBlack"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#808080"
+                app:cornerRadius="16dp" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/BackGroundTaskScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#020202"
     android:backgroundTint="#000000"
     android:orientation="vertical"><![CDATA[>
-
-
     ]]>
 
     <LinearLayout
@@ -17,28 +17,38 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/buttonAddTask"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:backgroundTint="#808080"
-            android:text="Back" />
+            android:text="AddTask"
+            android:onClick="OnClickButtonAddTask"
+            app:cornerRadius="16dp"
+            tools:ignore="OnClick" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonScore"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:backgroundTint="#808080"
-            android:text="Score" />
+            android:text="Score"
+            app:cornerRadius="16dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonSettings"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:backgroundTint="#808080"
-            android:text="Settings" />
+            android:onClick="OnClickButtonSettings"
+            android:text="Settings"
+            app:cornerRadius="16dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,26 +56,26 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:orientation="vertical"
-        android:weightSum="100
-">
+        android:weightSum="90">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="30">
+            android:layout_weight="20">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:backgroundTint="#FFFFFF"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="32dp"
                 android:gravity="center"
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -89,20 +99,22 @@
                     android:layout_weight="1">
 
                     <Button
-                        android:id="@+id/buttonAnswer3"
+                        android:id="@+id/buttonAnswer0"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_marginStart="32dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
                         android:backgroundTint="#808080"
-                        android:onClick="OnClickButtonAnswer3"
+                        android:onClick="OnClickButtonAnswer0"
                         android:text="Button"
+                        app:cornerRadius="16dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -111,20 +123,22 @@
                     android:layout_weight="1">
 
                     <Button
-                        android:id="@+id/buttonAnswer4"
+                        android:id="@+id/buttonAnswer1"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="32dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
                         android:backgroundTint="#808080"
-                        android:onClick="OnClickButtonAnswer4"
+                        android:onClick="OnClickButtonAnswer1"
                         android:text="Button"
+                        app:cornerRadius="16dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
@@ -144,13 +158,14 @@
                         android:id="@+id/buttonAnswer2"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_marginBottom="16dp"
                         android:backgroundTint="#808080"
                         android:onClick="OnClickButtonAnswer2"
                         android:text="Button"
+                        app:cornerRadius="16dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -163,18 +178,20 @@
                     android:layout_weight="1">
 
                     <Button
-                        android:id="@+id/buttonAnswer1"
+                        android:id="@+id/buttonAnswer3"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="32dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_marginBottom="16dp"
                         android:backgroundTint="#808080"
-                        android:onClick="OnClickButtonAnswer1"
+                        android:onClick="OnClickButtonAnswer3"
                         android:text="Button"
+                        app:cornerRadius="16dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -187,15 +204,16 @@
             android:layout_weight="40">
 
             <Button
-                android:id="@+id/buttonNextQuestion"
+                android:id="@+id/buttonNext"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="64dp"
                 android:layout_marginEnd="64dp"
-                android:layout_marginBottom="64dp"
+                android:layout_marginBottom="24dp"
                 android:backgroundTint="#808080"
                 android:onClick="onClickButtonNextQuestion"
                 android:text="Next Word"
+                app:cornerRadius="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

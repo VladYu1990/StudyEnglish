@@ -16,9 +16,36 @@
         android:theme="@style/Theme.StudyEnglish"
         tools:targetApi="31">
 
+
         <activity
-            android:name=".ScreenQuestion.ScreenQuestion"
+            android:name=".Screens.StartMyScreen"
             />
+        <activity
+            android:name=".Screens.TaskMyScreen"
+            />
+        <activity
+            android:name=".Screens.AuthorizationMyScreen"
+            />
+        <activity
+            android:name=".Screens.SettingsMyScreen"
+            />
+        <activity
+            android:name=".Screens.RegistrationMyScreen"
+            />
+        <activity
+            android:name=".Screens.OkMyScreen"
+            />
+        <activity
+            android:name=".Screens.ErrorMyScreen"
+            />
+        <activity
+            android:name=".Screens.Holder"
+            />
+        <activity
+            android:name=".Screens.AddTasksMyScreen"
+            />
+
+
         <activity
             android:name=".Main"
             android:exported="true"

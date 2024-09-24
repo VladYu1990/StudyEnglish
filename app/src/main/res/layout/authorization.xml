@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Screens.AuthorizationMyScreen">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#020202"
+        android:backgroundTint="#000000"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:text="Введите логин/пароль\nили зарегистрируйтесь"
+                android:textColor="#FBFBFB" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textViewLogin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="16dp"
+                android:background="#D8CCCC"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textViewPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="16dp"
+                android:background="#D8CCCC"
+                android:gravity="center"
+                android:hint="hint"
+                android:textSize="18sp"
+                app:cornerRadius="16dp" />
+
+        </FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+
+                <Button
+                    android:id="@+id/buttonEntrance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="60dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:onClick="onClickButtonEntrance"
+                    android:rotationX="0"
+                    android:text="Вход"
+                    app:cornerRadius="16dp" />
+
+                <Button
+                    android:id="@+id/buttonRegistration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="90dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="90dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:onClick="onClickButtonRegistration"
+                    android:rotationX="0"
+                    android:text="Регистрация"
+                    app:cornerRadius="16dp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
