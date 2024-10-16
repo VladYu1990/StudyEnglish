@@ -10,12 +10,11 @@ import android.widget.TextView;
 import com.example.studyenglish.Application.TasksService;
 import com.example.studyenglish.BaseColorsDependingOnTheme;
 import com.example.studyenglish.Configuration;
-import com.example.studyenglish.Domein.Task;
+import com.example.studyenglish.Domein.Exercise;
 import com.example.studyenglish.R;
 import com.example.studyenglish.Screens.ScreenConductor.ScreenConductor;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 
 public class TaskMyScreen extends MyScreen {
@@ -33,7 +32,7 @@ public class TaskMyScreen extends MyScreen {
 
     private boolean answerWasTake = false;
     private TasksService service;
-    private Task task;
+    private Exercise exercise;
 
 
 
@@ -68,8 +67,8 @@ public class TaskMyScreen extends MyScreen {
     private void doForNextTask() {
         refreshBackgrounds();
        try {
-           task = service.getNext();
-           if (task == null){
+           exercise = service.getNext();
+           if (exercise == null){
                new Exception();
            }
            fill();
@@ -82,11 +81,11 @@ public class TaskMyScreen extends MyScreen {
 
     private void fill() {
         buttonNextTask.setText("Next");
-        textView.setText(task.getQuestion());
-        buttonAnswerLeftTop.setText(task.getAnswers().get(0).getValue());
-        buttonAnswerRightTop.setText(task.getAnswers().get(1).getValue());
-        buttonAnswerLeftDown.setText(task.getAnswers().get(2).getValue());
-        buttonAnswerRightDown.setText(task.getAnswers().get(3).getValue());
+        textView.setText(exercise.getQuestion());
+        buttonAnswerLeftTop.setText(exercise.getAnswers().get(0).getValue());
+        buttonAnswerRightTop.setText(exercise.getAnswers().get(1).getValue());
+        buttonAnswerLeftDown.setText(exercise.getAnswers().get(2).getValue());
+        buttonAnswerRightDown.setText(exercise.getAnswers().get(3).getValue());
     }
 
     private void fillIfError() {
@@ -131,13 +130,13 @@ public class TaskMyScreen extends MyScreen {
     }
 
     private void checkAnswer(int i){
-        if(task == null){
+        if(exercise == null){
             return;
         }
 
         try {
             buttonsAnswers.get(i).setBackgroundColor(Color.RED);
-            int numberTryAnswer = task.getNumberTryAnswer();
+            int numberTryAnswer = exercise.getNumberTryAnswer();
             buttonsAnswers.get(numberTryAnswer).setBackgroundColor(Color.GREEN);
             service.saveAnswer(i);
         }

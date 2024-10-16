@@ -1,19 +1,20 @@
 package com.example.studyenglish.Domein;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
-public class Task {
-    private String code;
+public class Exercise {
+    private UUID code;
     private String question;
     private ArrayList<Answer> answers;
 
-    public Task(String code, String question, ArrayList<Answer> answers) {
+    public Exercise(UUID code, String question, ArrayList<Answer> answers) {
         this.code = code;
         this.question = question;
         this.answers = answers;
     }
 
-    public String getCode() {
+    public UUID getCode() {
         return code;
     }
 

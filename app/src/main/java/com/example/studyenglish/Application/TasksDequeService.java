@@ -10,9 +10,9 @@ public class TasksDequeService {
     }
 
    public void refillIfRequired(){
-        if(Dequeues.taskArrayDeque.size()>Configuration.getMinCountTasks())
+        if(Dequeues.exerciseArrayDeque.size()>Configuration.getMinCountTasks())
         {
-            fill(10 - Dequeues.taskArrayDeque.size());
+            fill(10 - Dequeues.exerciseArrayDeque.size());
         }
    }
 

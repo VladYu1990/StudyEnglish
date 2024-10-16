@@ -3,20 +3,21 @@ package com.example.studyenglish.Domein;
 import android.widget.Button;
 
 import java.lang.reflect.Array;
+import java.util.UUID;
 
 public class Answer {
 
-    private String code;
+    private UUID code;
     private String value;
     private boolean correct;
 
-    public Answer(String code, String value, boolean correct) {
+    public Answer(UUID code, String value, boolean correct) {
         this.code = code;
         this.value = value;
         this.correct = correct;
     }
 
-    public String getCode() {
+    public UUID getCode() {
         return code;
     }
 

@@ -1,19 +1,23 @@
 package com.example.studyenglish.Connectors;
 
+import com.example.studyenglish.Adapters.AnswerConvertor;
 import com.example.studyenglish.Configuration;
-import com.example.studyenglish.Connectors.Connector;
-import com.example.studyenglish.Domein.Task;
-import com.example.studyenglish.Domein.Token;
+import com.example.studyenglish.Dequeues;
+import com.example.studyenglish.Domein.Answer;
+import com.example.studyenglish.Domein.Exercise;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 public class TaskAdapter extends Connector {
 
-    private ArrayList<Task> tasks;
+    private ArrayList<Exercise> exercises;
 
 
     public void createTasks(List<String> strings){
@@ -30,16 +34,27 @@ public class TaskAdapter extends Connector {
 
     public void fillDeque(int countTasks){
         typeOfMethode = "GET";
-        stringURLReady = stringURLBase + "tasks/getNext/" +
-                "?amountTasks=" + countTasks + "&amountAnswers=" + Configuration.getCountAnswerForOneTask();
+        stringURLReady = stringURLBase + "exercise/next/" + Configuration.getCountAnswerForOneTask();
     }
 
     private void extract() {
 
         try {
-            JSONObject jsonResultObject = jsonObject.getJSONObject("result_object");
-            String tokenStr = jsonResultObject.getString("task");
-        } catch (Exception e) {
+            Iterator x = jsonObject.keys();
+
+            while(x.hasNext()) {
+                JSONObject jsonObjectEx = (JSONObject) x.next();
+                //создать упражнение
+                //создать набор ответов
+                ArrayList<Answer> answers = AnswerConvertor.convert(jsonObjectEx.getJSONArray("answerOptions"));
+                Exercise exercise = new Exercise(
+                        UUID.fromString(jsonObjectEx.getString("uuid")),
+                        jsonObjectEx.getString("question"),
+                        answers);
+                Dequeues.exerciseArrayDeque.add(exercise);
+            }
+            } catch (JSONException jsonException) {
+            jsonException.printStackTrace();
         }
     }
 }
