@@ -26,12 +26,10 @@ public class TokenAdapter extends Connector {
     public Token extract() throws Exception{
             Thread.sleep(1000);
             System.out.println(jsonObject.toString());
-            JSONObject jsonObjectToken = jsonObject.getJSONObject("token");
-            String tokenStr = jsonObjectToken.getString("token");
-            String instantString = jsonObjectToken.getString("dateOfDeathToken");
+            String tokenStr = jsonObject.getString("uuid");
+            String instantString = jsonObject.getString("dateOfDeathToken");
 
-            return new Token(tokenStr, Timestamp.valueOf(instantString).toInstant());
-            //+5 дней
+            return new Token(tokenStr, Instant.parse(instantString));
     }
 
 }
