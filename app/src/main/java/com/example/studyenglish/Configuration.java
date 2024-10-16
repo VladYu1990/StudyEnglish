@@ -8,7 +8,7 @@ import com.example.studyenglish.Screens.MyScreen;
 import kotlin.jvm.Synchronized;
 
 public class Configuration {
-    private final static String ip = "192.168.0.12";
+    private final static String ip = "212.20.46.135";
     private final static String port = "8080";
     private final static String protokol = "http";
     private final static Integer countTasksDefault = 10;

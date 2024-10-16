@@ -14,8 +14,8 @@ public class UserAdapter extends Connector {
             typeOfMethode = "POST";
             header.put("login", login);
             header.put("password", password);
-            header.put("phone",phone);
-            stringURLReady = stringURLBase + "users/create/";
+            header.put("phoneNumber",phone);
+            stringURLReady = stringURLBase + "users/create";
         }
         catch (Exception e){}
     }
