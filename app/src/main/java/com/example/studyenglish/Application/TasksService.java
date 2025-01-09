@@ -1,22 +1,28 @@
 package com.example.studyenglish.Application;
 
-import com.example.studyenglish.Connectors.ExerciseAdapter;
+import com.example.studyenglish.Configuration;
+import com.example.studyenglish.Connectors.TaskAdapter;
 import com.example.studyenglish.Dequeues;
-import com.example.studyenglish.Domein.Exercise;
+import com.example.studyenglish.Domein.Answer;
+import com.example.studyenglish.Domein.Task;
 import com.example.studyenglish.Flows.ThreadForConnection;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 
 public class TasksService {
 
-    private ArrayDeque<Exercise> exercises = Dequeues.exerciseArrayDeque;
+    private ArrayDeque<Task> tasks = Dequeues.taskArrayDeque;
 
     public TasksService() {
     }
 
-    public Exercise getNext() {
-        return exercises.pollFirst();
+    public Task getNext() {
+        return tasks.pollFirst();
     }
 
     public void saveAnswer(int numberAnswer){
@@ -26,7 +32,7 @@ public class TasksService {
     public Integer getCountTaskForRepetition(){
         try
         {
-            return exercises.size();
+            return tasks.size();
         }
         catch (Exception e){
             return 0;
@@ -35,7 +41,7 @@ public class TasksService {
 
 
     public void createTasks(List<String> strings) {
-        ExerciseAdapter connector = new ExerciseAdapter();
+        TaskAdapter connector = new TaskAdapter();
         connector.createTasks(strings);
 
         ThreadForConnection thread = new ThreadForConnection(connector);

@@ -7,16 +7,17 @@ import com.example.studyenglish.Domein.Token;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.Timestamp;
 import java.time.Instant;
 
 public class TokenAdapter extends Connector {
 
     public void login(String login, String password) {
         try {
-            typeOfMethode = "GET";
+            typeOfMethode = "PUT";
             header.put("login", login);
             header.put("password", password);
-            stringURLReady = stringURLBase + "users/logIn/";
+            stringURLReady = stringURLBase + "users/logIn";
         }
         catch (Exception e){}
     }
@@ -25,12 +26,10 @@ public class TokenAdapter extends Connector {
     public Token extract() throws Exception{
             Thread.sleep(1000);
             System.out.println(jsonObject.toString());
-            JSONObject jsonResultObject = jsonObject.getJSONObject("result_object");
-            String tokenStr = jsonResultObject.getString("token");
-            String dateDeathStr = jsonResultObject.getString("dateDeath");
-            Instant dateDeath = Instant.parse(dateDeathStr);
+            String tokenStr = jsonObject.getString("uuid");
+            String instantString = jsonObject.getString("dateOfDeathToken");
 
-            return new Token(tokenStr, dateDeath);
+            return new Token(tokenStr, Instant.parse(instantString));
     }
 
 }

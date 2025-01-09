@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class AnswerConvertor {
 
@@ -16,7 +17,7 @@ public class AnswerConvertor {
         for(int i=0;i<answersJSON.length();i++){
             JSONObject jsonObject = answersJSON.getJSONObject(i);
             answers.add(new Answer(
-                    jsonObject.getString("code"),
+                    UUID.fromString(jsonObject.getString("code")),
                     jsonObject.getString("value"),
                     jsonObject.getBoolean("correct")));
         }
