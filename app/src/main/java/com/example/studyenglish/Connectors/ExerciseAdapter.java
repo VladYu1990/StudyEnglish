@@ -11,9 +11,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskAdapter extends Connector {
-
-    private ArrayList<Task> tasks;
+public class ExerciseAdapter extends Connector {
 
 
     public void createTasks(List<String> strings){
