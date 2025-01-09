@@ -2,12 +2,12 @@ package com.example.studyenglish.Domein;
 
 import java.util.ArrayList;
 
-public class Task {
+public class Exercise {
     private String code;
     private String question;
     private ArrayList<Answer> answers;
 
-    public Task(String code, String question, ArrayList<Answer> answers) {
+    public Exercise(String code, String question, ArrayList<Answer> answers) {
         this.code = code;
         this.question = question;
         this.answers = answers;
