@@ -1,19 +1,15 @@
 package com.example.studyenglish.Connectors;
 
-import com.example.studyenglish.Configuration;
-import com.example.studyenglish.Connectors.Connector;
-import com.example.studyenglish.Domein.Task;
-import com.example.studyenglish.Domein.Token;
+import com.example.studyenglish.Domein.Exercise;
 
 import org.json.JSONObject;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskAdapter extends Connector {
+public class ExerciseAdapter extends Connector {
 
-    private ArrayList<Task> tasks;
+    private ArrayList<Exercise> exercises;
 
 
     public void createTasks(List<String> strings){
@@ -25,13 +21,12 @@ public class TaskAdapter extends Connector {
         }
         stringBuilder.append(">");
 
-        stringURLReady = stringURLBase + "tasks/create/" + stringBuilder.toString();
+        stringURLReady = stringURLBase + "exercise/create/" + stringBuilder.toString();
     }
 
     public void fillDeque(int countTasks){
         typeOfMethode = "GET";
-        stringURLReady = stringURLBase + "tasks/getNext/" +
-                "?amountTasks=" + countTasks + "&amountAnswers=" + Configuration.getCountAnswerForOneTask();
+        stringURLReady = stringURLBase + "exercise/next/" + countTasks;
     }
 
     private void extract() {

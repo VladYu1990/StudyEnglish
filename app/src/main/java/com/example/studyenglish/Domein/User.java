@@ -1,8 +1,8 @@
 package com.example.studyenglish.Domein;
 
 public class User {
-    private String login = "";
-    private String phone = "";
+    private String login = "vladimirYu";
+    private String phone = "5240";
 
     public User(){}
 

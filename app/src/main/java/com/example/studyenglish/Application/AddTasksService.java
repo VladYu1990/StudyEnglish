@@ -1,6 +1,5 @@
 package com.example.studyenglish.Application;
 
-import com.example.studyenglish.Connectors.TaskAdapter;
 import com.example.studyenglish.Screens.ScreenConductor.ScreenConductor;
 
 import java.util.List;
